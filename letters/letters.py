@@ -1,6 +1,5 @@
 import string
 import random
-import time
 
 from kivy.app import App
 from kivy.properties import StringProperty, ListProperty
@@ -50,7 +49,8 @@ class LettersWidget(Widget):
         self._keyboard = None
 
     def _on_keyboard_down(self, keyboard, keycode, text, modifiers):
-        self.check_input(keycode[1])
+        if keycode[1] in string.ascii_letters:
+            self.check_input(keycode[1])
 
     @property
     def random_color(self):
@@ -66,7 +66,6 @@ class LettersWidget(Widget):
     @property
     def wrong_color(self):
         return (1, 0, 0, 1)
-
 
 
 class LettersApp(App):
