@@ -1,0 +1,5 @@
+packaging/*
+letters/.buildozer/*
+letters/.DS_Store
+__pycache__/*
+*.pyc
