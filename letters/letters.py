@@ -2,9 +2,10 @@ import string
 import random
 
 from kivy.app import App
+from kivy.clock import Clock
+from kivy.core.audio import SoundLoader
 from kivy.properties import StringProperty, ListProperty
 from kivy.uix.widget import Widget
-from kivy.clock import Clock
 
 from kivy.core.window import Window
 
@@ -23,15 +24,18 @@ class LettersWidget(Widget):
     def get_letter(self, *args):
         self.ids.letter.color = self.random_color
         self.letter = random.choice(string.ascii_uppercase)
+        self.play_sound(self.letter)
 
     def check_input(self, key):
         self.set_letter_alpha(0.4)
         if key.upper() == self.letter:
             self.score = 'OK'
             self.score_color = self.ok_color
+            self.play_sound('Ok')
             Clock.schedule_once(self.get_letter, 1)
         else:
             self.score = 'WRONG'
+            self.play_sound('Uh_oh')
             self.score_color = self.wrong_color
         Clock.schedule_once(self.clear_score, 1)
 
@@ -51,6 +55,11 @@ class LettersWidget(Widget):
     def _on_keyboard_down(self, keyboard, keycode, text, modifiers):
         if keycode[1] in string.ascii_letters:
             self.check_input(keycode[1])
+
+    def play_sound(self, sound_file=None):
+        sound = SoundLoader.load('audio/ogg/{}.ogg'.format(sound_file))
+        if sound:
+            sound.play()
 
     @property
     def random_color(self):
