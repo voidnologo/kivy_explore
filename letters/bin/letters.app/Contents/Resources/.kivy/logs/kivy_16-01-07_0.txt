@@ -1,6 +1,0 @@
-[INFO              ] Logger: Record log in /Users/quanon/code/kivy-sdk-packager/osx/Kivy.app/Contents/Resources/.kivy/logs/kivy_16-01-07_0.txt
-[[1;33mWARNING[0m] [Config      ] Upgrading configuration in progress.
-[[1;33mWARNING[0m] [Config      ] Older configuration version detected (0 instead of 14)
-[INFO              ] Kivy: v1.9.1
-[INFO              ] Python: v3.5.0 (default, Dec 12 2015, 05:50:29) 
-[GCC 4.2.1 Compatible Apple LLVM 7.0.2 (clang-700.1.81)]

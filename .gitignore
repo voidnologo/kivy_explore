@@ -1,5 +1,6 @@
 packaging/*
 letters/.buildozer/*
 letters/.DS_Store
+letters/bin/*
 __pycache__/*
 *.pyc
